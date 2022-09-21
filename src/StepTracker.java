@@ -49,7 +49,7 @@ public class StepTracker {
             System.out.println(notShort);
         } else {
             for (int i=0; i<monthToData[saveMonth-1].length; i++) {  // цикл для поиска в массиве
-                sumSteps = sumSteps + monthToData[saveMonth - 1][i];  // суммирование всех шагов в течение введеного месяца
+                sumSteps = sumSteps + monthToData[saveMonth - 1][i];  // суммирование всех шагов в течение введенного месяца
                 if (maxSteps < monthToData[saveMonth - 1][i]) {    // поиск максимального значения в массиве
                     maxSteps = monthToData[saveMonth - 1][i];
                 }
@@ -69,17 +69,17 @@ public class StepTracker {
                     System.out.println((i+1) + " день:" + monthToData[saveMonth - 1][i] + ".");
                 }
             }
-            System.out.println("Общее количество шагов за месяц: " + sumSteps);  //вывод значений
-            System.out.println("Максимальное пройденное количество шагов в месяце: " + maxSteps);
-            System.out.println("Среднее количество шагов: " + sumSteps/30);
-            System.out.println("Пройденная дистанция: " + converter.convertDist(sumSteps) + " км"); // подсчет в классе Converter
-            System.out.println("Количество сожжённых килокалорий " + converter.convertCCal(sumSteps)); // подсчет в классе Converter
-            System.out.println("Лучшая серия: " + maxSeries);
+             System.out.println("\b Общее количество шагов за месяц: " + sumSteps +
+                                "\n Максимальное пройденное количество шагов в месяце: " + maxSteps +
+                                "\n Среднее количество шагов:" + sumSteps/30 +
+                                "\n Пройденная дистанция: " + converter.convertDist(sumSteps) + " км" +
+                                "\n Количество сожжённых килокалорий " + converter.convertCCal(sumSteps) +
+                                "\n Лучшая серия: " + maxSeries);  //вывод значений
         }
     }
     public void changeTargetSteps() {  // метод отвечающий за изменение целевого значения
-        System.out.println("Текущее целовое значение шагов " + targetStepValue);
-        System.out.println("Введите новое целовое значение шагов:");
+        System.out.println("Текущее целевое значение шагов " + targetStepValue);
+        System.out.println("Введите новое целевое значение шагов:");
         int newTargetStepValue = scanner.nextInt();
         if (newTargetStepValue < 0) { // проверка на корректность ввода
             System.out.println(notPlus);
