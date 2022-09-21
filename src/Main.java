@@ -2,34 +2,42 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        boolean startLoop = true;  // булево значение для работы цикла while
         Scanner scanner = new Scanner(System.in);
         StepTracker stepTracker = new StepTracker();
         printMenu();
         int userInput = scanner.nextInt();
 
-        while (userInput != 0) {
-            if (userInput == 1) {
-                stepTracker.monthSave();// 1 - Ввести количество шагов за определённый день
-            } else if (userInput == 2) {
-                stepTracker.monthStat();// 2 - Посмотреть на статистику за определённый месяц
-            } else if (userInput == 3) {
-                stepTracker.changeTargetSteps(); //3 - Изменить цель по количеству шагов в день
-            } else {
-                System.out.println("Извините, такой команды пока нет.");
+        while(startLoop) {   // цикл для перезапуска switch
+            switch (userInput) {
+                case 1:
+                    stepTracker.monthSave(); // 1 - Ввести количество шагов за определённый день
+                    break;
+                case 2:
+                    stepTracker.monthStat(); // 2 - Посмотреть на статистику за определённый месяц
+                    break;
+                case 3:
+                    stepTracker.changeTargetSteps(); // 3 - Изменить цель по количеству шагов в день
+                    break;
+                case 0:
+                    System.out.println("Программа завершена");
+                    startLoop = false; // если значение false цикл прекращает свою работу
+                    break;
+                default:
+                    System.out.println("Извините, такой команды пока нет.");
+                    break;
             }
-
-            printMenu(); // печатаем меню ещё раз перед завершением предыдущего действия
-            userInput = scanner.nextInt(); // повторное считывание данных от пользователя
+            printMenu();
+            userInput = scanner.nextInt();
         }
-        System.out.println("Программа завершена");
     }
 
 
     private static void printMenu() {
-        System.out.println("Что вы хотите сделать? ");
-        System.out.println("1 - Ввести количество шагов за определённый день");
-        System.out.println("2 - Посмотреть на статистику за определённый месяц");
-        System.out.println("3 - Изменить цель по количеству шагов в день");
-        System.out.println("0 - Выход");
+        System.out.println("Что вы хотите сделать? \n " +
+                "1 - Ввести количество шагов за определённый день \n " +
+                "2 - Посмотреть на статистику за определённый месяц \n " +
+                "3 - Изменить цель по количеству шагов в день \n " +
+                "0 - Выход");
     }
 }
