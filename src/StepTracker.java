@@ -2,13 +2,13 @@ import java.util.Scanner;
 public class StepTracker {
     Scanner scanner = new Scanner(System.in);
     Converter converter = new Converter();
-    int[][] monthToData = new int[12][30];
+    final int[][] monthToData = new int[12][30];
     int targetStepValue=10000;
     String notPlus = "Введено отрицательное значение или 0, введите положительное!";
     String notShort = "Введено значение больше чем нужно, введите другое значение!";
 
     public void monthSave() {  // метод отвечает за сохранение шагов в определённый день месяца
-        System.out.println("За какой месяц вы хотите ввести статистику? от 1 до 12 (где 1 - январь, 12-декабрь");
+        System.out.println("За какой месяц вы хотите ввести статистику? от 1 до 12 (где 1 - январь, 12-декабрь)");
         int saveMonth = scanner.nextInt();
 
 
@@ -36,7 +36,7 @@ public class StepTracker {
     }
     public void monthStat() {  // метод отвечает за вывод и расчет статистики за месяц
 
-        System.out.println("За какой месяц вы хотите просмотреть статистику? от 1 до 12 (где 1 - январь, 12-декабрь");
+        System.out.println("За какой месяц вы хотите просмотреть статистику? от 1 до 12 (где 1 - январь, 12-декабрь)");
         int saveMonth = scanner.nextInt();
         int sumSteps=0;
         int maxSteps=0;
