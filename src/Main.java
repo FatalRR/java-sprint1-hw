@@ -7,7 +7,7 @@ public class Main {
         StepTracker stepTracker = new StepTracker();
         printMenu();
         int userInput = scanner.nextInt();
-
+        loop: // метка для выхода
         while(startLoop) {   // цикл для перезапуска switch
             switch (userInput) {
                 case 1:
@@ -22,7 +22,7 @@ public class Main {
                 case 0:
                     System.out.println("Программа завершена");
                     startLoop = false; // если значение false цикл прекращает свою работу
-                    break;
+                    break loop; // выход через метку, без этого продолжается цикл и заново печатает меню
                 default:
                     System.out.println("Извините, такой команды пока нет.");
                     break;
